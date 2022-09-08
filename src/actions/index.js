@@ -1,10 +1,15 @@
+export const actions = {
+  setFavorite:'SET_FAVORITE',
+  deleteFavorite: 'DELETE_FAVORITE'
+}
+
 // describe la informacion y pasa un objeto 
 export const setFavorite = payload => ({
-  type: 'SET_FAVORITE',
+  type: actions.setFavorite,
   payload, 
 });
 
 export const deleteFavorite = payload => ({
-    type: 'DELETE_FAVORITE',
-    payload,
+  type: actions.deleteFavorite,
+  payload,
 });
