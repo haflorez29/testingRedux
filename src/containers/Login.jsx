@@ -1,11 +1,12 @@
-import React from 'react';
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { Link} from 'react-router-dom';
+import { loginRequest } from '../actions';
 import googleIcon from '../assets/static/google-icon.png';
 import twitterIcon from '../assets/static/twitter-icon.png';
 import '../assets/styles/components/Login.scss';
 
-const Login = () => {
+const Login = props => {
   const [form, setValues] = useState({
     email: '',
   })
@@ -20,7 +21,9 @@ const Login = () => {
   const handleSubmit = (e) => {
     // evita que se envien parametros por url
     e.preventDefault();
-    console.log(form)
+    props.loginRequest(form)
+    // disponible por el react router  que me ayuda a redirigir al home 
+    props.history.push('/')
   }
 
   return (
@@ -71,4 +74,8 @@ const Login = () => {
   )
 };
 
-export default Login;
+const mapDispatchToProps = {
+  loginRequest,
+}
+
+export default connect(null, mapDispatchToProps)(Login);
