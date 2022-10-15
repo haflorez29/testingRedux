@@ -24,22 +24,22 @@ const CarouselItem = (props) => {
     <div className="carousel-item">
       <img className="carousel-item__img" src={cover} alt={title} />
       <div className="carousel-item__details">
-        <div> 
+        <div>
           <Link to={`/player/${id}`}>
-          <img 
-            className="carousel-item__details--img" 
-            src={playIcon} 
-            alt="Play Icon" 
-          />
+            <img
+              className='carousel-item__details--img'
+              src={playIcon}
+              alt='Play Icon'
+            />
           </Link>
-          <img 
-            className="carousel-item__details--img" 
-            src={plusIcon} alt="Plus Icon" 
-            onClick={handleSaveFavorite}/>
+          <img
+            className="carousel-item__details--img"
+            src={plusIcon} alt="Plus Icon"
+            onClick={handleSaveFavorite} />
           <img
             className="carousel-item__details--img"
             src={removeIcon} alt="Remove Icon"
-            onClick={()=>handleDeleteFavorite(id)} />
+            onClick={() => handleDeleteFavorite(id)} />
         </div>
         <p className="carousel-item__details--title">{title}</p>
         <p className="carousel-item__details--subtitle">
