@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Header from '../components/Header';
 import { connect } from 'react-redux'
 import { Link} from 'react-router-dom';
 import { loginRequest } from '../actions';
@@ -27,6 +28,8 @@ const Login = props => {
   }
 
   return (
+    <>
+    <Header isLogin />
     <section className='login'>
       <section className='login__container'>
         <h2>Inicia sesión</h2>
@@ -71,6 +74,7 @@ const Login = props => {
         </p>
       </section>
     </section>
+    </>
   )
 };
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import classNames from 'classnames'
 import gravatar from '../utils/gravatar';
 import '../assets/styles/components/Header.scss';
 import logo from '../assets/static/logo-platzi-video-BW2.png';
@@ -8,15 +9,20 @@ import userIcon from '../assets/static/user-icon.png';
 import { logoutRequest } from '../actions';
 
 const Header = props => {
-  const { user } = props;
+  const { user, isLogin, isRegister } = props;
   // para validar si un objeto tiene elementos
   const hasUser = Object.keys(user).length > 0;
   const handleLogout = () => {
     props.logoutRequest({})
   }
+
+  const headerClass = classNames('header', {
+    isLogin, 
+    isRegister
+  })
   
   return (
-    <header className='header'>
+    <header className={headerClass}>
       {/* el link evita el refresh que genera la etiqueta a */}
       <Link to='/'>
         <img className='header__img' src={logo} alt='Platzi Video' />
