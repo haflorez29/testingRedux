@@ -5,6 +5,7 @@ export const actions = {
   logoutRequest: 'LOGOUT_REQUEST',
   registerRequest: 'REGISTER_REQUEST',
   getVideoSource: 'GET_VIDEO_SOURCE',
+  searchResult: 'GET_SEARCH_RESULT'
 }
 
 // describe la informacion y pasa un objeto 
@@ -35,5 +36,10 @@ export const registerRequest = payload => ({
 
 export const getVideoSource = payload => ({
   type: actions.getVideoSource,
+  payload,
+});
+
+export const searchResult = payload => ({
+  type: actions.searchResult,
   payload,
 });

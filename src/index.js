@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+// compose hace la conexion con reduxDevTools para hacer debug de redux
+import { createStore, compose } from 'redux';
 import reducer from './reducers';
 import App from './routes/App';
 
@@ -9,6 +10,7 @@ const initialState = {
   'user': {},
   'playing': {},
   'myList': [],
+  'searchResult':[],
   'trends': [
     {
       'id': 2,
@@ -183,7 +185,9 @@ const initialState = {
   ]
 };
 
-const store = createStore(reducer, initialState);
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+const store = createStore(reducer, initialState, composeEnhancers());
 
 ReactDOM.render(
   <Provider store={store}>

@@ -31,6 +31,11 @@ const reducer = (state, action) => {
         ...state,
         playing: state.trends.concat(state.originals).find(item => item.id === Number(action.payload)) || []
       }
+    case 'GET_SEARCH_RESULT':
+      return {
+        ...state,
+        searchResult: state.trends.concat(state.originals).filter(e=>e.title.toLowerCase().includes(action.payload)) || []
+      }
     default:
       return state;
   }
